@@ -38,10 +38,10 @@ ThemeData appThemeLight = ThemeData(
     //     value: SystemUiOverlayStyle.dark,
     //     child: ...
       statusBarColor: Color(0xffDB363B),
-      statusBarIconBrightness:  Brightness.dark,
+      statusBarIconBrightness:  Brightness.light,
       systemNavigationBarColor: Color(0xff000000),
       systemNavigationBarContrastEnforced: true,
-      systemNavigationBarDividerColor: Colors.black26,
+      systemNavigationBarDividerColor: Colors.black,
       systemNavigationBarIconBrightness:  Brightness.dark,
       systemStatusBarContrastEnforced: true,
     ),
