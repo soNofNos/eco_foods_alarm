@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/cupertino.dart';
 
 ThemeData appThemeLight = ThemeData(
   brightness: Brightness.light,
@@ -29,7 +28,7 @@ ThemeData appThemeLight = ThemeData(
     subtitle1: TextStyle(fontSize: 14, color: Color(0xff222B45)),
   ),
   colorScheme: ColorScheme.fromSwatch().copyWith(secondary: const Color(0xffF4BFBF),),
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarBrightness: Brightness.dark,
       //TODO:
@@ -46,10 +45,12 @@ ThemeData appThemeLight = ThemeData(
       systemNavigationBarIconBrightness:  Brightness.dark,
       systemStatusBarContrastEnforced: true,
     ),
-    color: Colors.green,
     backgroundColor: Colors.yellow,
+    centerTitle: false,
+    elevation: 0,
+    foregroundColor: Color(0xff000000),
     ),
-  // applyElevationOverlayColor: ,
+  applyElevationOverlayColor: true,
   );
 
 
