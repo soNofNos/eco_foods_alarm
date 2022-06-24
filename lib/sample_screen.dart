@@ -33,6 +33,7 @@ class _SamplePageState extends State<SamplePage> {
     return Scaffold(
       appBar: AppBar(
          // iconTheme: Theme.of(context).appBarTheme.iconTheme,
+        toolbarTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
         titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
         actionsIconTheme: appThemeLight.appBarTheme.iconTheme,
         actions: const <Widget>[Icon(Icons.balance),Text("   ")],
