@@ -15,6 +15,8 @@ ThemeData appThemeLight = ThemeData(
   primaryColorLight: const Color(0xffffffff),
   //main Color for dark
   primaryColorDark: const Color(0xff000000),
+  // floatingActionButtonTheme: ,
+  //TODO: FAB theme
   splashColor: const Color(0xffF4BFBF),
   textTheme: const TextTheme(),
   fontFamily: 'DMSans',
@@ -30,7 +32,7 @@ ThemeData appThemeLight = ThemeData(
   colorScheme: ColorScheme.fromSwatch().copyWith(secondary: const Color(0xffF4BFBF),),
   appBarTheme: const AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
       //TODO:
     //     Add following into your widget tree:
     //
@@ -38,17 +40,23 @@ ThemeData appThemeLight = ThemeData(
     //     value: SystemUiOverlayStyle.dark,
     //     child: ...
       statusBarColor: Color(0xffDB363B),
-      statusBarIconBrightness:  Brightness.light,
+      statusBarIconBrightness:  Brightness.dark,
       systemNavigationBarColor: Color(0xff000000),
       systemNavigationBarContrastEnforced: true,
-      systemNavigationBarDividerColor: Colors.black,
+      systemNavigationBarDividerColor: Colors.white,
       systemNavigationBarIconBrightness:  Brightness.dark,
       systemStatusBarContrastEnforced: true,
     ),
-    backgroundColor: Colors.yellow,
+    backgroundColor: Color(0xffDB363B),
     centerTitle: false,
     elevation: 0,
-    foregroundColor: Color(0xff000000),
+    foregroundColor: Color(0xffFFFFFF),
+    iconTheme: IconThemeData(
+    color: Colors.white,
+      opacity: 0.1,
+      size: 3,
+    ),
+    //TODO: icontheme
     ),
   applyElevationOverlayColor: true,
   );

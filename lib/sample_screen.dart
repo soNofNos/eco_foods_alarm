@@ -62,6 +62,7 @@ class _SamplePageState extends State<SamplePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Icon(Icons.balance),
           ],
         ),
       ),
