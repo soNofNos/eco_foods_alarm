@@ -30,7 +30,7 @@ ThemeData appThemeLight = ThemeData(
     subtitle1: TextStyle(fontSize: 14, color: Color(0xff222B45)),
   ),
   colorScheme: ColorScheme.fromSwatch().copyWith(secondary: const Color(0xffF4BFBF),),
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarBrightness: Brightness.light,
       //TODO:
@@ -53,10 +53,19 @@ ThemeData appThemeLight = ThemeData(
     foregroundColor: Color(0xffFFFFFF),
     iconTheme: IconThemeData(
     color: Colors.white,
-      opacity: 0.1,
-      size: 3,
+    opacity: 0.95,
+      size: 25,
+      shadows: [
+        BoxShadow(
+          color: Colors.yellow,
+          blurRadius: 40,
+          // blurStyle: ,
+          // spreadRadius: ,
+          // offset: ,
+
+        ),
+      ]
     ),
-    //TODO: icontheme
     ),
   applyElevationOverlayColor: true,
   );

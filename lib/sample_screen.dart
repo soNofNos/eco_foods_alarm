@@ -1,3 +1,4 @@
+import 'package:eco_foods_alarm/ui/themes/app_theme_light.dart';
 import 'package:flutter/material.dart';
 
 class SamplePage extends StatefulWidget {
@@ -31,6 +32,9 @@ class _SamplePageState extends State<SamplePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
+         // iconTheme: Theme.of(context).appBarTheme.iconTheme,
+        actionsIconTheme: appThemeLight.appBarTheme.iconTheme,
+        actions: const <Widget>[Icon(Icons.balance),],
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text("Sample Page"),
@@ -60,10 +64,10 @@ class _SamplePageState extends State<SamplePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline3,
             ),
-            Icon(Icons.balance),
-          ],
+            IconTheme(data: Theme.of(context).iconTheme, child: const Icon(Icons.balance),
+            ),],
         ),
       ),
       floatingActionButton: FloatingActionButton(
