@@ -33,8 +33,9 @@ class _SamplePageState extends State<SamplePage> {
     return Scaffold(
       appBar: AppBar(
          // iconTheme: Theme.of(context).appBarTheme.iconTheme,
+        titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
         actionsIconTheme: appThemeLight.appBarTheme.iconTheme,
-        actions: const <Widget>[Icon(Icons.balance),],
+        actions: const <Widget>[Icon(Icons.balance),Text("   ")],
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text("Sample Page"),

@@ -29,22 +29,24 @@ ThemeData appThemeLight = ThemeData(
         fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xff222B45)),
     subtitle1: TextStyle(fontSize: 14, color: Color(0xff222B45)),
   ),
-  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: const Color(0xffF4BFBF),),
+  colorScheme: ColorScheme.fromSwatch().copyWith(
+    secondary: const Color(0xffF4BFBF),
+  ),
   appBarTheme: AppBarTheme(
     systemOverlayStyle: SystemUiOverlayStyle(
       statusBarBrightness: Brightness.light,
       //TODO:
-    //     Add following into your widget tree:
-    //
-    // AnnotatedRegion<SystemUiOverlayStyle>(
-    //     value: SystemUiOverlayStyle.dark,
-    //     child: ...
+      //     Add following into your widget tree:
+      //
+      // AnnotatedRegion<SystemUiOverlayStyle>(
+      //     value: SystemUiOverlayStyle.dark,
+      //     child: ...
       statusBarColor: Color(0xffDB363B),
-      statusBarIconBrightness:  Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
       systemNavigationBarColor: Color(0xff000000),
       systemNavigationBarContrastEnforced: true,
       systemNavigationBarDividerColor: Colors.white,
-      systemNavigationBarIconBrightness:  Brightness.dark,
+      systemNavigationBarIconBrightness: Brightness.dark,
       systemStatusBarContrastEnforced: true,
     ),
     backgroundColor: Color(0xffDB363B),
@@ -52,22 +54,29 @@ ThemeData appThemeLight = ThemeData(
     elevation: 0,
     foregroundColor: Color(0xffFFFFFF),
     iconTheme: IconThemeData(
-    color: Colors.white,
-    opacity: 0.95,
+      color: Colors.white,
+      opacity: 0.95,
       size: 25,
       shadows: [
         BoxShadow(
-          color: Colors.yellow,
+          color: Colors.black26,
           blurRadius: 40,
-          // blurStyle: ,
-          // spreadRadius: ,
-          // offset: ,
-
+          blurStyle: BlurStyle.inner,
+          spreadRadius: 20,
+          offset: Offset(2, 2),
         ),
-      ]
+      ],
     ),
+    shadowColor: const Color(0xff9E9E9E),
+    //shape:
+    titleSpacing: 5,
+    titleTextStyle: TextStyle(
+      backgroundColor: Colors.transparent,
+      color: Colors.white,
+      decoration: TextDecoration.none,
+      //TODO: decColor not needed
+      decorationColor: Colors.lightGreen,
     ),
+  ),
   applyElevationOverlayColor: true,
-  );
-
-
+);
