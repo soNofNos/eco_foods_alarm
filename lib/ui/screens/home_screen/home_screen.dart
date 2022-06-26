@@ -60,54 +60,56 @@ MaterialButton(onPressed: (){}, child: Column(
               ),
             ),
             Divider(),
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20),
-                color: Theme.of(context).backgroundColor,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.center,
-                        child: ClockView()),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      formattedTime,
-                      style: appThemeLight.primaryTextTheme.headline1,
-                    ),
-                    Text(
-                      formattedDate,
-                      style: appThemeLight.primaryTextTheme.headline1,
-                    ),
-                    Text(
-                      "O'Clock",
-                      style: appThemeLight.primaryTextTheme.headline1,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      "Timezone",
-                      style: appThemeLight.primaryTextTheme.headline2,
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.language),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "UTC/GMT " + offsetSign + timeZoneString,
-                          style: appThemeLight.primaryTextTheme.headline2,
-                        ),
-                      ],
-                    ),
-                    Text("O'Clock"),
-                    Text("O'Clock"),
-                    Text("O'Clock"),
-                  ],
+            SingleChildScrollView(
+              child: Expanded(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20),
+                  color: Theme.of(context).backgroundColor,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                          child: ClockView()),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        formattedTime,
+                        style: appThemeLight.primaryTextTheme.headline1,
+                      ),
+                      Text(
+                        formattedDate,
+                        style: appThemeLight.primaryTextTheme.headline1,
+                      ),
+                      Text(
+                        "O'Clock",
+                        style: appThemeLight.primaryTextTheme.headline1,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Timezone",
+                        style: appThemeLight.primaryTextTheme.headline2,
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.language),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "UTC/GMT " + offsetSign + timeZoneString,
+                            style: appThemeLight.primaryTextTheme.headline2,
+                          ),
+                        ],
+                      ),
+                      Text("O'Clock"),
+                      Text("O'Clock"),
+                      Text("O'Clock"),
+                    ],
+                  ),
                 ),
               ),
             ),
