@@ -15,11 +15,16 @@ class _ClockViewState extends State<ClockView> {
   @override
   void initState(){
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (timer){
+    Timer.periodic(Duration(milliseconds: 100), (timer){
       setState(() {
 
       });
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
