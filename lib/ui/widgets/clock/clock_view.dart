@@ -12,7 +12,9 @@ class ClockView extends StatefulWidget {
 
 class _ClockViewState extends State<ClockView> {
 
-  @override void initState(){
+  @override
+  void initState(){
+    super.initState();
     Timer.periodic(Duration(seconds: 1), (timer){
       setState(() {
 
@@ -23,10 +25,10 @@ class _ClockViewState extends State<ClockView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 325,
-      height: 325,
+      width: 305,
+      height: 305,
       child: Transform.rotate(
-        angle:  pi ,
+        angle:  pi/2 ,
         child: CustomPaint(
           painter: ClockPainter(),
         ),
@@ -56,45 +58,52 @@ class ClockPainter extends CustomPainter {
       ..strokeWidth = 8;
 
     var centerFillPaintBrush = Paint()
-      ..color = Colors.black;
+      ..color = Colors.red;
 
     var secondHandPaintBrush = Paint()
-      ..color = Colors.red
-      ..shader = RadialGradient(colors: [Colors.green, Colors.blue])
+      // ..color = Colors.red
+      ..shader = RadialGradient(colors: [Colors.red, Colors.red])
           .createShader(Rect.fromCircle(center: centerPoint, radius: radius))
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 8;
+      ..strokeWidth = 3;
 
     var minHandPaintBrush = Paint()
-      ..shader = RadialGradient(colors: [Colors.orange, Colors.brown])
+      ..shader = RadialGradient(colors: [Colors.black, Colors.black])
           .createShader(Rect.fromCircle(center: centerPoint, radius: radius))
-      ..color = Colors.black54
+      // ..color = Colors.black54
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 8;
 
     var hourHandPaintBrush = Paint()
-      ..shader = RadialGradient(colors: [Colors.amber, Colors.pink])
+      ..shader = RadialGradient(colors: [Colors.black, Colors.black])
           .createShader(Rect.fromCircle(center: centerPoint, radius: radius))
-      ..color = Colors.black
+      // ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 8;
 
+    var dashPaintBrush = Paint()
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 1;
+
+
     canvas.drawCircle(centerPoint, radius - 40, fillPaintBrush);
     canvas.drawCircle(centerPoint, radius - 40, outlinePaintBrush);
 
-    var secHandXCoordinate = centerPointX + 80 * cos(dateTime.second  * 6 * pi/180);
-    var secHandYCoordinate = centerPointY + 80 * sin(dateTime.second  * 6 * pi/180);
+    var secHandXCoordinate = centerPointX + 100 * cos(dateTime.second  * 6 * pi/180);
+    var secHandYCoordinate = centerPointY + 100 * sin(dateTime.second  * 6 * pi/180);
     canvas.drawLine(centerPoint, Offset(secHandXCoordinate, secHandYCoordinate), secondHandPaintBrush);
 
     var minHandXCoordinate = centerPointX + 80 * cos(dateTime.minute  * 6 * pi/180);
     var minHandYCoordinate = centerPointY + 80 * sin(dateTime.minute  * 6 * pi/180);
     canvas.drawLine(centerPoint, Offset(minHandXCoordinate, minHandYCoordinate), minHandPaintBrush);
 
-    var hourHandXCoordinate = centerPointX + 80 * cos(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
-    var hourHandYCoordinate = centerPointY + 80 * sin(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
+    var hourHandXCoordinate = centerPointX + 50 * cos(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
+    var hourHandYCoordinate = centerPointY + 50 * sin(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
     canvas.drawLine(centerPoint, Offset(hourHandXCoordinate, hourHandYCoordinate), hourHandPaintBrush);
 
 
@@ -109,7 +118,7 @@ class ClockPainter extends CustomPainter {
 
       var x2 = centerPointX + innerCircleRadius * cos(i * pi/180);
       var y2 = centerPointX + innerCircleRadius * sin(i * pi/180);
-      // canvas.drawLine(Offset(x1,y1), Offset(x2,y2), dashBrush);
+      canvas.drawLine(Offset(x1,y1), Offset(x2,y2), dashPaintBrush);
     }
 
   }
