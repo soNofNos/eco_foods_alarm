@@ -15,7 +15,15 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         alignment: Alignment.center,
         color: Theme.of(context).backgroundColor,
-        child: ClockView(),
+        child: Column(
+          children: [
+            ClockView(),
+            Text("O'Clock"),
+            Text("O'Clock"),
+            Text("O'Clock"),
+            Text("O'Clock"),
+          ],
+        ),
       ),
     );
   }

@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 
 ThemeData appThemeLight = ThemeData(
   brightness: Brightness.light,
-  // backgroundColor: const Color(0xffF7F9FC),
-  backgroundColor: Colors.amber,
+  backgroundColor: const Color(0xffF7F9FC),
   scaffoldBackgroundColor: const Color(0xffF7F9FC),
   //For hints
   hintColor: const Color(0xff9E9E9E),
