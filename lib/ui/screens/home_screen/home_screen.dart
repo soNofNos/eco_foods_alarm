@@ -52,7 +52,8 @@ print(timeZoneString);
                 children: [
 MaterialButton(onPressed: (){}, child: Column(
   children: [
-    FlutterLogo(),
+    // FlutterLogo(),
+    Icon(Icons.watch_later_outlined),
           Text('World Clock', style: appThemeLight.textTheme.headline3),
   ],
 ),)
@@ -60,8 +61,8 @@ MaterialButton(onPressed: (){}, child: Column(
               ),
             ),
             Divider(),
-            SingleChildScrollView(
-              child: Expanded(
+            Expanded(
+              child: SingleChildScrollView(
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20),
                   color: Theme.of(context).backgroundColor,

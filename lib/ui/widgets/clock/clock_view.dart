@@ -116,13 +116,23 @@ class ClockPainter extends CustomPainter {
 
 
     var outerCircleRadius = radius;
-    var innerCircleRadius = radius - 14;
-    for (double i = 0; i <360; i += 12){
+    var innerCircleRadius = radius - 18;
+    for (double i = 0; i <360; i += 30){
       var x1 = centerPointX + outerCircleRadius * cos(i * pi/180);
       var y1 = centerPointX + outerCircleRadius * sin(i * pi/180);
 
       var x2 = centerPointX + innerCircleRadius * cos(i * pi/180);
       var y2 = centerPointX + innerCircleRadius * sin(i * pi/180);
+      canvas.drawLine(Offset(x1,y1), Offset(x2,y2), dashPaintBrush);
+    }
+
+    var innerCircleRadiusS = radius - 8;
+    for(double j = 0; j < 360; j += 6){
+      var x1 = centerPointX + outerCircleRadius * cos(j * pi/180);
+      var y1 = centerPointX + outerCircleRadius * sin(j * pi/180);
+
+      var x2 = centerPointX + innerCircleRadiusS * cos(j * pi/180);
+      var y2 = centerPointX + innerCircleRadiusS * sin(j * pi/180);
       canvas.drawLine(Offset(x1,y1), Offset(x2,y2), dashPaintBrush);
     }
 
