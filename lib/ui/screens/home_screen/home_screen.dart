@@ -35,11 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
     var formattedTime = DateFormat('HH : mm : ss').format(timeNow);
     var formattedDate = DateFormat('dd-MM-yyyy').format(timeNow);
     var timeZoneString = timeNow.timeZoneOffset.toString().split('.').first;
-var offsetSign = '';
-if(!timeZoneString.startsWith('-')){
-  offsetSign = '+';
-}
-print(timeZoneString);
+    var offsetSign = '';
+    if (!timeZoneString.startsWith('-')) {
+      offsetSign = '+';
+    }
 
     return Scaffold(
       body: SafeArea(
@@ -50,13 +49,19 @@ print(timeZoneString);
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-MaterialButton(onPressed: (){}, child: Column(
-  children: [
-    // FlutterLogo(),
-    Icon(Icons.watch_later_outlined),
-          Text('World Clock', style: appThemeLight.textTheme.headline3),
-  ],
-),)
+                  Expanded(
+                    child: buildMenuButton(
+                        'Alarm', Icon(Icons.alarm_outlined)),
+                  ),
+      Expanded(
+        child:buildMenuButton(
+                      'World Clock', Icon(Icons.watch_later_outlined))),
+      Expanded(
+        child:buildMenuButton(
+                      'Stop Watch', Icon(Icons.stop))),
+      Expanded(
+        child:buildMenuButton(
+                      'Timer', Icon(Icons.watch_later_outlined))),
                 ],
               ),
             ),
@@ -64,14 +69,13 @@ MaterialButton(onPressed: (){}, child: Column(
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 20),
                   color: Theme.of(context).backgroundColor,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Align(
-                        alignment: Alignment.center,
-                          child: ClockView()),
+                      Align(alignment: Alignment.center, child: ClockView()),
                       SizedBox(
                         height: 10,
                       ),
@@ -116,6 +120,22 @@ MaterialButton(onPressed: (){}, child: Column(
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  MaterialButton buildMenuButton(String title, Icon titleIcon) {
+    return MaterialButton(
+      onPressed: () {},
+      child: Column(
+        children: [
+          // FlutterLogo(),
+          titleIcon,
+          SizedBox(
+            height: 2.5,
+          ),
+          Center(child: Text(title, style: appThemeLight.primaryTextTheme.headline4)),
+        ],
       ),
     );
   }

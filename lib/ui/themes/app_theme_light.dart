@@ -27,6 +27,9 @@ ThemeData appThemeLight = ThemeData(
         fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xff222B45)),
     headline3: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xff222B45)),
+
+    headline4: TextStyle(
+        fontWeight: FontWeight.w400, fontSize: 10, color: Colors.black54),
     subtitle1: TextStyle(fontSize: 14, color: Color(0xff222B45)),
   ),
   colorScheme: ColorScheme.fromSwatch().copyWith(
