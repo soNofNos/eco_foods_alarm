@@ -4,7 +4,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class ClockView extends StatefulWidget {
-  const ClockView({Key? key}) : super(key: key);
+
+  final double size;
+
+  const ClockView({Key? key, required this.size}) : super(key: key);
 
   @override
   State<ClockView> createState() => _ClockViewState();
@@ -30,8 +33,8 @@ class _ClockViewState extends State<ClockView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 305,
-      height: 305,
+      width: widget.size,
+      height: widget.size,
       child: Transform.rotate(
         angle:  pi/2 ,
         child: CustomPaint(
@@ -71,7 +74,8 @@ class ClockPainter extends CustomPainter {
           .createShader(Rect.fromCircle(center: centerPoint, radius: radius))
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 3;
+      // ..strokeWidth = 3;
+    ..strokeWidth = size.width/60;
 
     var minHandPaintBrush = Paint()
       ..shader = RadialGradient(colors: [Colors.black, Colors.black])
@@ -79,7 +83,8 @@ class ClockPainter extends CustomPainter {
       // ..color = Colors.black54
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 8;
+      // ..strokeWidth = 8;
+      ..strokeWidth = size.width/30;
 
     var hourHandPaintBrush = Paint()
       ..shader = RadialGradient(colors: [Colors.black, Colors.black])
@@ -87,7 +92,8 @@ class ClockPainter extends CustomPainter {
       // ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 8;
+      // ..strokeWidth = 8;
+      ..strokeWidth = size.width/24;
 
     var dashPaintBrush = Paint()
       ..color = Colors.black
@@ -96,27 +102,27 @@ class ClockPainter extends CustomPainter {
       ..strokeWidth = 1;
 
 
-    canvas.drawCircle(centerPoint, radius - 40, fillPaintBrush);
-    canvas.drawCircle(centerPoint, radius - 40, outlinePaintBrush);
+    canvas.drawCircle(centerPoint, radius * 0.75, fillPaintBrush);
+    canvas.drawCircle(centerPoint, radius  * 0.75, outlinePaintBrush);
 
-    var secHandXCoordinate = centerPointX + 100 * cos(dateTime.second  * 6 * pi/180);
-    var secHandYCoordinate = centerPointY + 100 * sin(dateTime.second  * 6 * pi/180);
+    var secHandXCoordinate = centerPointX + radius * 0.4 * cos(dateTime.second  * 6 * pi/180);
+    var secHandYCoordinate = centerPointY + radius * 0.4 * sin(dateTime.second  * 6 * pi/180);
     canvas.drawLine(centerPoint, Offset(secHandXCoordinate, secHandYCoordinate), secondHandPaintBrush);
 
-    var minHandXCoordinate = centerPointX + 80 * cos(dateTime.minute  * 6 * pi/180);
-    var minHandYCoordinate = centerPointY + 80 * sin(dateTime.minute  * 6 * pi/180);
+    var minHandXCoordinate = centerPointX + radius * 0.6 * cos(dateTime.minute  * 6 * pi/180);
+    var minHandYCoordinate = centerPointY + radius * 0.6 * sin(dateTime.minute  * 6 * pi/180);
     canvas.drawLine(centerPoint, Offset(minHandXCoordinate, minHandYCoordinate), minHandPaintBrush);
 
-    var hourHandXCoordinate = centerPointX + 50 * cos(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
-    var hourHandYCoordinate = centerPointY + 50 * sin(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
+    var hourHandXCoordinate = centerPointX + radius * 0.6 * cos(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
+    var hourHandYCoordinate = centerPointY + radius * 0.6 * sin(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
     canvas.drawLine(centerPoint, Offset(hourHandXCoordinate, hourHandYCoordinate), hourHandPaintBrush);
 
 
-    canvas.drawCircle(centerPoint, 12, centerFillPaintBrush);
+    canvas.drawCircle(centerPoint, radius * 0.12, centerFillPaintBrush);
 
 
     var outerCircleRadius = radius;
-    var innerCircleRadius = radius - 18;
+    var innerCircleRadius = radius * 0.9;
     for (double i = 0; i <360; i += 30){
       var x1 = centerPointX + outerCircleRadius * cos(i * pi/180);
       var y1 = centerPointX + outerCircleRadius * sin(i * pi/180);
