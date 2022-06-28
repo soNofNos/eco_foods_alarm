@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:eco_foods_alarm/constants/fonts/custom_stop_watch_icons.dart';
 import 'package:eco_foods_alarm/ui/themes/app_theme_light.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -50,18 +51,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: buildMenuButton(
-                        'Alarm', Icon(Icons.alarm_outlined)),
+                    child: buildMenuButton('Alarm', Icon(Icons.alarm_outlined)),
                   ),
-      Expanded(
-        child:buildMenuButton(
-                      'World Clock', Icon(Icons.watch_later_outlined))),
-      Expanded(
-        child:buildMenuButton(
-                      'Stop Watch', Icon(Icons.stop))),
-      Expanded(
-        child:buildMenuButton(
-                      'Timer', Icon(Icons.watch_later_outlined))),
+                  Expanded(
+                      child: buildMenuButton(
+                          'World Clock', Icon(Icons.watch_later_outlined))),
+                  Expanded(
+                      child: buildMenuButton(
+                          'Stop Watch',
+                          Icon(
+                            CustomStopWatch.stopwatch,
+                            size: 20,
+                          ))),
+                  Expanded(
+                      child: buildMenuButton(
+                          'Timer', Icon(Icons.watch_later_outlined))),
                 ],
               ),
             ),
@@ -134,7 +138,9 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 2.5,
           ),
-          Center(child: Text(title, style: appThemeLight.primaryTextTheme.headline4)),
+          Center(
+              child:
+                  Text(title, style: appThemeLight.primaryTextTheme.headline4)),
         ],
       ),
     );
