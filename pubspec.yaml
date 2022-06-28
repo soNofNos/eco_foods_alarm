@@ -69,7 +69,10 @@ flutter:
         - asset: fonts/DMSans-Regular.ttf
         - asset: fonts/DMSans-Bold.ttf
           weight: 700
-        - asset: fonts/icons/MyFlutterApp.ttf
+        - asset: fonts/DMSans-Medium.ttf
+    - family: CustomStopWatch
+      fonts:
+        - asset: fonts/icons/CustomStopWatch.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
