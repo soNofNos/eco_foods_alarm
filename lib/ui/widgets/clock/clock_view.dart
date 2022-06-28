@@ -75,7 +75,7 @@ class ClockPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       // ..strokeWidth = 3;
-    ..strokeWidth = size.width/60;
+    ..strokeWidth = size.width/90;
 
     var minHandPaintBrush = Paint()
       ..shader = RadialGradient(colors: [Colors.black, Colors.black])
@@ -84,7 +84,7 @@ class ClockPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       // ..strokeWidth = 8;
-      ..strokeWidth = size.width/30;
+      ..strokeWidth = size.width/40;
 
     var hourHandPaintBrush = Paint()
       ..shader = RadialGradient(colors: [Colors.black, Colors.black])
@@ -99,22 +99,22 @@ class ClockPainter extends CustomPainter {
       ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
-      ..strokeWidth = 1;
-
+      // ..strokeWidth = 1;
+      ..strokeWidth = size.width/270;
 
     canvas.drawCircle(centerPoint, radius * 0.75, fillPaintBrush);
     canvas.drawCircle(centerPoint, radius  * 0.75, outlinePaintBrush);
 
-    var secHandXCoordinate = centerPointX + radius * 0.4 * cos(dateTime.second  * 6 * pi/180);
-    var secHandYCoordinate = centerPointY + radius * 0.4 * sin(dateTime.second  * 6 * pi/180);
+    var secHandXCoordinate = centerPointX + radius * 0.65 * cos(dateTime.second  * 6 * pi/180);
+    var secHandYCoordinate = centerPointY + radius * 0.65 * sin(dateTime.second  * 6 * pi/180);
     canvas.drawLine(centerPoint, Offset(secHandXCoordinate, secHandYCoordinate), secondHandPaintBrush);
 
     var minHandXCoordinate = centerPointX + radius * 0.6 * cos(dateTime.minute  * 6 * pi/180);
     var minHandYCoordinate = centerPointY + radius * 0.6 * sin(dateTime.minute  * 6 * pi/180);
     canvas.drawLine(centerPoint, Offset(minHandXCoordinate, minHandYCoordinate), minHandPaintBrush);
 
-    var hourHandXCoordinate = centerPointX + radius * 0.6 * cos(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
-    var hourHandYCoordinate = centerPointY + radius * 0.6 * sin(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
+    var hourHandXCoordinate = centerPointX + radius * 0.45 * cos(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
+    var hourHandYCoordinate = centerPointY + radius * 0.45 * sin(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
     canvas.drawLine(centerPoint, Offset(hourHandXCoordinate, hourHandYCoordinate), hourHandPaintBrush);
 
 
