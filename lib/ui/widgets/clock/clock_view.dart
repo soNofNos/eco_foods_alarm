@@ -58,7 +58,7 @@ class ClockPainter extends CustomPainter {
     var radius = min(centerPointX, centerPointY);
 
     var fillPaintBrush = Paint()
-      ..color = Colors.white70;
+      ..color = Colors.amber;
 
     var outlinePaintBrush = Paint()
       ..color = Colors.black
