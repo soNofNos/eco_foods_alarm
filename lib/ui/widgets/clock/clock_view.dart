@@ -105,20 +105,21 @@ class ClockPainter extends CustomPainter {
     canvas.drawCircle(centerPoint, radius * 0.75, fillPaintBrush);
     canvas.drawCircle(centerPoint, radius  * 0.75, outlinePaintBrush);
 
-    var secHandXCoordinate = centerPointX + radius * 0.65 * cos(dateTime.second  * 6 * pi/180);
-    var secHandYCoordinate = centerPointY + radius * 0.65 * sin(dateTime.second  * 6 * pi/180);
-    canvas.drawLine(centerPoint, Offset(secHandXCoordinate, secHandYCoordinate), secondHandPaintBrush);
-
-    var minHandXCoordinate = centerPointX + radius * 0.6 * cos(dateTime.minute  * 6 * pi/180);
-    var minHandYCoordinate = centerPointY + radius * 0.6 * sin(dateTime.minute  * 6 * pi/180);
-    canvas.drawLine(centerPoint, Offset(minHandXCoordinate, minHandYCoordinate), minHandPaintBrush);
 
     var hourHandXCoordinate = centerPointX + radius * 0.45 * cos(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
     var hourHandYCoordinate = centerPointY + radius * 0.45 * sin(dateTime.hour * 30 + dateTime.minute * 0.5 * pi/180);
     canvas.drawLine(centerPoint, Offset(hourHandXCoordinate, hourHandYCoordinate), hourHandPaintBrush);
 
+    var minHandXCoordinate = centerPointX + radius * 0.6 * cos(dateTime.minute  * 6 * pi/180);
+    var minHandYCoordinate = centerPointY + radius * 0.6 * sin(dateTime.minute  * 6 * pi/180);
+    canvas.drawLine(centerPoint, Offset(minHandXCoordinate, minHandYCoordinate), minHandPaintBrush);
 
-    canvas.drawCircle(centerPoint, radius * 0.12, centerFillPaintBrush);
+    var secHandXCoordinate = centerPointX + radius * 0.65 * cos(dateTime.second  * 6 * pi/180);
+    var secHandYCoordinate = centerPointY + radius * 0.65 * sin(dateTime.second  * 6 * pi/180);
+    canvas.drawLine(centerPoint, Offset(secHandXCoordinate, secHandYCoordinate), secondHandPaintBrush);
+
+
+    canvas.drawCircle(centerPoint, radius * 0.11, centerFillPaintBrush);
 
 
     var outerCircleRadius = radius;
@@ -132,7 +133,7 @@ class ClockPainter extends CustomPainter {
       canvas.drawLine(Offset(x1,y1), Offset(x2,y2), dashPaintBrush);
     }
 
-    var innerCircleRadiusS = radius - 8;
+    var innerCircleRadiusS = radius * 0.95;
     for(double j = 0; j < 360; j += 6){
       var x1 = centerPointX + outerCircleRadius * cos(j * pi/180);
       var y1 = centerPointX + outerCircleRadius * sin(j * pi/180);

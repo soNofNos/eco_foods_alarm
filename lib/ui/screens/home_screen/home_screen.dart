@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Align(alignment: Alignment.center, child: ClockView(size: MediaQuery.of(context).size.height/3,)),
+                      Align(alignment: Alignment.center, child: ClockView(size: MediaQuery.of(context).size.height/4,)),
                       SizedBox(
                         height: 10,
                       ),
