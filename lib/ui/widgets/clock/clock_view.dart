@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../themes/app_theme_light.dart';
+
 class ClockView extends StatefulWidget {
 
   final double size;
@@ -58,7 +60,7 @@ class ClockPainter extends CustomPainter {
     var radius = min(centerPointX, centerPointY);
 
     var fillPaintBrush = Paint()
-      ..color = Colors.amber;
+      ..color = appThemeLight.backgroundColor;
 
     var outlinePaintBrush = Paint()
       ..color = Colors.black

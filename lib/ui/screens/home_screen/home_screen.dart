@@ -130,6 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   MaterialButton buildMenuButton(String title, Icon titleIcon) {
     return MaterialButton(
+      color: Colors.amber,
       onPressed: () {},
       child: Column(
         children: [

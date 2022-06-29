@@ -1,0 +1,1 @@
+enum MenuType { alarm, world_clock, stop_watch, timer}
