@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:eco_foods_alarm/constants/fonts/custom_stop_watch_icons.dart';
+import 'package:eco_foods_alarm/data.dart';
+import 'package:eco_foods_alarm/menu_info.dart';
 import 'package:eco_foods_alarm/ui/themes/app_theme_light.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../../widgets/clock/clock_view.dart';
 
@@ -48,25 +51,28 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 5.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: buildMenuButton('Alarm', Icon(Icons.alarm_outlined)),
-                  ),
-                  Expanded(
-                      child: buildMenuButton(
-                          'World Clock', Icon(Icons.watch_later_outlined))),
-                  Expanded(
-                      child: buildMenuButton(
-                          'Stop Watch',
-                          Icon(
-                            CustomStopWatch.stopwatch,
-                            size: 20,
-                          ))),
-                  Expanded(
-                      child: buildMenuButton(
-                          'Timer', Icon(Icons.watch_later_outlined))),
-                ],
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children:
+                  menuItems.map((currentMenuInfo) => buildMenuButton(currentMenuInfo)).toList(),
+                //   <Widget>[
+                //   Expanded(
+                //     child: buildMenuButton('Alarm', Icon(Icons.alarm_outlined)),
+                //   ),
+                //   Expanded(
+                //       child: buildMenuButton(
+                //           'World Clock', Icon(Icons.watch_later_outlined))),
+                //   Expanded(
+                //       child: buildMenuButton(
+                //           'Stop Watch',
+                //           Icon(
+                //             CustomStopWatch.stopwatch,
+                //             size: 20,
+                //           ))),
+                //   Expanded(
+                //       child: buildMenuButton(
+                //           'Timer', Icon(Icons.watch_later_outlined))),
+                // ],
               ),
             ),
             Divider(),
@@ -128,22 +134,37 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  MaterialButton buildMenuButton(String title, Icon titleIcon) {
-    return MaterialButton(
-      color: Colors.amber,
-      onPressed: () {},
-      child: Column(
-        children: [
-          // FlutterLogo(),
-          titleIcon,
-          SizedBox(
-            height: 2.5,
+  Widget buildMenuButton(MenuInfo currentMenuInfo) {
+    return Consumer<MenuInfo>(
+      builder: (BuildContext context, MenuInfo value, Widget? child) {
+        return ElevatedButton(
+          // color: currentMenuInfo.title == "Alarm" ? Colors.amber : Colors.green,
+          onPressed: () {
+            var menuInfo = Provider.of<MenuInfo>(context);
+            menuInfo.updateMenu(currentMenuInfo);
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.amber,
+
+            enableFeedback: true,
+
+
           ),
-          Center(
-              child:
-                  Text(title, style: appThemeLight.primaryTextTheme.headline4)),
-        ],
-      ),
+          child: Column(
+            children: [
+              // FlutterLogo(),
+              Icon(currentMenuInfo.titleIcon),
+              SizedBox(
+                height: 2.5,
+              ),
+              Center(
+                  child:
+                  Text(currentMenuInfo.title, style: appThemeLight.primaryTextTheme.headline4)),
+            ],
+          ),
+        );
+      },
     );
   }
+
 }
